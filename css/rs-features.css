@@ -1,0 +1,284 @@
+.rs-features {
+  position: relative;
+  padding: 110px 0px;
+}
+@media (max-width: 1439.98px) {
+  .rs-features {
+    padding-top: 86.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-features {
+    padding-top: 63.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-features {
+    padding-top: 40px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-features {
+    padding-bottom: 86.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-features {
+    padding-bottom: 63.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-features {
+    padding-bottom: 40px;
+  }
+}
+.rs-features__bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.rs-features__bg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.rs-features__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+.rs-features__title img {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+}
+.rs-features__wrapper {
+  margin-top: 60px;
+}
+@media (max-width: 1439.98px) {
+  .rs-features__wrapper {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-features__wrapper {
+    margin-top: 40px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-features__wrapper {
+    margin-top: 30px;
+  }
+}
+.rs-features__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 30px;
+  counter-reset: features;
+}
+.rs-features__item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 calc(25% - 30px);
+          flex: 1 1 calc(25% - 30px);
+  min-height: 444px;
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid #b5b5b5;
+  background: #f9f9f9;
+}
+@media (max-width: 1439.98px) {
+  .rs-features__item {
+    padding: 33.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-features__item {
+    padding: 26.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-features__item {
+    padding: 20px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-features__item {
+    min-height: 362.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-features__item {
+    min-height: 281.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-features__item {
+    min-height: 200px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-features__item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 calc(50% - 30px);
+            flex: 1 1 calc(50% - 30px);
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-features__item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+}
+.rs-features__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.rs-features__icon {
+  height: 60px;
+}
+.rs-features__icon img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (max-width: 1439.98px) {
+  .rs-features__icon {
+    height: 53.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-features__icon {
+    height: 46.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-features__icon {
+    height: 40px;
+  }
+}
+.rs-features__num {
+  width: 54px;
+  height: 59px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  position: relative;
+  color: #b5b5b5;
+}
+@media (max-width: 1439.98px) {
+  .rs-features__num {
+    width: 49.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-features__num {
+    width: 44.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-features__num {
+    width: 40px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-features__num {
+    height: 52.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-features__num {
+    height: 46.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-features__num {
+    height: 40px;
+  }
+}
+.rs-features__num::before {
+  counter-increment: features;
+  content: counter(features, decimal-leading-zero) "";
+  font-weight: 400;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #b5b5b5;
+}
+@media (max-width: 1439.98px) {
+  .rs-features__num::before {
+    font-size: 25.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-features__num::before {
+    font-size: 20.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-features__num::before {
+    font-size: 16px;
+  }
+}
+.rs-features__num > div:nth-child(1)::before, .rs-features__num > div:nth-child(1)::after, .rs-features__num > div:nth-child(2)::before, .rs-features__num > div:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  height: 13px;
+  width: 1px;
+  background-color: currentColor;
+  display: block;
+  -webkit-transition: height 0.3s ease 0s;
+  transition: height 0.3s ease 0s;
+}
+.rs-features__num > div:nth-child(1)::before, .rs-features__num > div:nth-child(2)::before {
+  left: 0;
+}
+.rs-features__num > div:nth-child(1)::after, .rs-features__num > div:nth-child(2)::after {
+  right: 0;
+}
+.rs-features__num > div:nth-child(1)::before, .rs-features__num > div:nth-child(1)::after {
+  bottom: 0;
+}
+.rs-features__num > div:nth-child(2)::before, .rs-features__num > div:nth-child(2)::after {
+  top: 0;
+}

@@ -1,0 +1,205 @@
+section {
+	position: relative;
+	overflow: hidden;
+}
+
+// Text ========================================================================================================================================================
+h1 {
+}
+
+h2 {
+	font-weight: 400;
+	font-size: 180px;
+	// line-height: 180px;
+	line-height: 100%;
+	letter-spacing: -0.03em;
+	text-transform: uppercase;
+
+	@include responsive-auto(font-size, (180, 35), (1439.98, 1169.98, 991.98));
+}
+
+h3 {
+	font-weight: 700;
+	font-size: 60px;
+	// line-height: 66px;
+	line-height: 110%;
+	text-transform: uppercase;
+
+	@include responsive-auto(font-size, (60, 24), (1439.98, 1169.98, 991.98));
+}
+
+h4 {
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 130%;
+	text-transform: uppercase;
+
+	@include responsive-auto(font-size, (30, 16), (1439.98, 1169.98, 991.98));
+
+	&::before,
+	&::after {
+		font-weight: inherit;
+		font-size: inherit;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	&::before {
+		content: "[";
+	}
+
+	&::after {
+		content: "]";
+	}
+}
+
+p {
+	font-weight: 300;
+	font-size: 19px;
+
+	@include responsive-auto(font-size, (19, 14), (1439.98, 1169.98, 991.98));
+}
+
+// Button ========================================================================================================================================================
+.rs-btn {
+	text-transform: none;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	z-index: 10;
+	transition: all 0.3s ease 0s;
+
+	padding: 15px 30px;
+	font-weight: 500;
+	font-size: 14px;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+
+	@media (max-width: 1439.98px) {
+		padding: 12px 20px;
+	}
+
+	@media (max-width: 1169.98px) {
+		padding: 8px 16px;
+	}
+
+	&._btn-primary {
+		background-color: #002350;
+		color: #fff;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #2864aa;
+			}
+		}
+	}
+
+	&._btn-border {
+		padding: 10px 20px;
+		font-weight: 400;
+		font-size: 20px;
+		text-transform: uppercase;
+		text-align: right;
+		border-top: 1px solid currentColor;
+		border-bottom: 1px solid currentColor;
+
+		@include responsive-auto(font-size, (20, 14), (1439.98, 1169.98, 991.98));
+
+		& > div:nth-child(1)::before,
+		& > div:nth-child(1)::after,
+		& > div:nth-child(2)::before,
+		& > div:nth-child(2)::after {
+			content: "";
+			position: absolute;
+			height: 13px;
+			width: 1px;
+			background-color: currentColor;
+			display: block;
+			transition: height 0.3s ease 0s;
+		}
+
+		& > div:nth-child(1)::before,
+		& > div:nth-child(2)::before {
+			left: 0;
+		}
+
+		& > div:nth-child(1)::after,
+		& > div:nth-child(2)::after {
+			right: 0;
+		}
+
+		& > div:nth-child(1)::before,
+		& > div:nth-child(1)::after {
+			bottom: 0;
+		}
+
+		& > div:nth-child(2)::before,
+		& > div:nth-child(2)::after {
+			top: 0;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				& > div:nth-child(1)::before,
+				& > div:nth-child(1)::after,
+				& > div:nth-child(2)::before,
+				& > div:nth-child(2)::after {
+					height: 50%;
+				}
+			}
+		}
+	}
+}
+
+.line-cursor {
+	z-index: 100;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	position: absolute;
+	pointer-events: none;
+	inset: 0% 0% -54.5% -30%;
+}
+
+.line-cursor__line {
+	position: absolute;
+
+	&-horizontal {
+		width: 100%;
+		height: 1px;
+		background-color: rgba($color: #fff, $alpha: 0.5);
+		inset: 50% auto auto 0%;
+	}
+
+	&-vertical {
+		width: 1px;
+		height: 100%;
+		background-color: rgba($color: #fff, $alpha: 0.5);
+		inset: 0% auto auto 50%;
+	}
+
+	svg {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		top: 50%;
+		left: 50%;
+		margin: -50px;
+
+		@media (max-width: 1439.98px) {
+			width: 75px;
+			height: 75px;
+			margin: -34.5px;
+		}
+
+		@media (max-width: 1169.98px) {
+			width: 50px;
+			height: 50px;
+			margin: -25px;
+		}
+	}
+}

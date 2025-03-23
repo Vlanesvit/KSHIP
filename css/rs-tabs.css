@@ -1,0 +1,159 @@
+.rs-tabs {
+  padding: 27px 0px;
+  position: relative;
+  height: 100vh;
+}
+.rs-tabs__tabs {
+  color: #fff;
+  height: 100%;
+}
+.rs-tabs__tabs .tabs__navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.rs-tabs__tabs .tabs__title {
+  font-weight: 400;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+@media (max-width: 1439.98px) {
+  .rs-tabs__tabs .tabs__title {
+    font-size: 40px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-tabs__tabs .tabs__title {
+    font-size: 30px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-tabs__tabs .tabs__title {
+    font-size: 20px;
+  }
+}
+.rs-tabs__tabs .tabs__title::before, .rs-tabs__tabs .tabs__title::after {
+  font-weight: inherit;
+  font-size: inherit;
+  display: inline-block;
+  vertical-align: top;
+}
+.rs-tabs__tabs .tabs__title._tab-active::before {
+  content: "[";
+}
+.rs-tabs__tabs .tabs__title._tab-active::after {
+  content: "]";
+}
+.rs-tabs__tabs .tabs__content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='1920' height='980' viewBox='0 0 1920 980' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0_4006_1345)'%3e%3crect width='1920' height='980' fill='url(%23paint0_linear_4006_1345)'/%3e%3crect width='1920' height='980' fill='url(%23paint1_linear_4006_1345)'/%3e%3c/g%3e%3cdefs%3e%3clinearGradient id='paint0_linear_4006_1345' x1='1920' y1='980' x2='-2.11472e-05' y2='4.14313e-05' gradientUnits='userSpaceOnUse'%3e%3cstop offset='0.0707192' stop-color='%23002350' stop-opacity='0.3'/%3e%3cstop offset='1' stop-color='%23002350' stop-opacity='0'/%3e%3c/linearGradient%3e%3clinearGradient id='paint1_linear_4006_1345' x1='714.5' y1='980' x2='606.5' y2='-3.11339e-06' gradientUnits='userSpaceOnUse'%3e%3cstop offset='0.763111' stop-color='%23002350' stop-opacity='0'/%3e%3cstop offset='1' stop-color='%23002350' stop-opacity='0.3'/%3e%3c/linearGradient%3e%3cclipPath id='clip0_4006_1345'%3e%3crect width='1920' height='980' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 9;
+  pointer-events: none;
+}
+.rs-tabs__tabs .tabs__body {
+  opacity: 0;
+  display: none;
+  -webkit-transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-behavior: allow-discrete;
+}
+.rs-tabs__tabs .tabs__body img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+.rs-tabs__tabs .tabs__body._tab-active {
+  display: block;
+  opacity: 1;
+}
+@starting-style {
+  .rs-tabs__tabs .tabs__body._tab-active {
+    opacity: 0;
+  }
+}
+.rs-tabs__container {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+}
+.rs-tabs__wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.rs-tabs__head, .rs-tabs__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media (max-width: 991.98px) {
+  .rs-tabs__head img, .rs-tabs__footer img {
+    max-width: 30%;
+  }
+}
+.rs-tabs__head {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.rs-tabs__head img {
+  margin-top: 202px;
+}
+@media (max-width: 1439.98px) {
+  .rs-tabs__head img {
+    margin-top: 149px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-tabs__head img {
+    margin-top: 78px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-tabs__head img {
+    margin-top: 7px;
+  }
+}
+.rs-tabs__footer {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.rs-tabs .line-cursor {
+  inset: -43% 0% 0% -53%;
+}

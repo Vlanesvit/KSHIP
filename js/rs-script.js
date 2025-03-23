@@ -49,19 +49,21 @@ function fadeBlock(item) {
 	const block = document.querySelector(item);
 	if (block) {
 		window.addEventListener('scroll', function () {
-			const heroOpas = this.scrollY / 1000;
-			if (heroOpas === 0) {
-				block.style.opacity = 1;
-				block.style.transform = `translateY(${(heroOpas * 100) + '%'})`;
-			}
-			if (heroOpas > 0) {
-				block.style.opacity = `${1 - heroOpas}`;
-				block.style.transform = `translateY(${(heroOpas * 100) + '%'})`;
-			}
+			// Используем requestAnimationFrame для более плавного обновления
+			window.requestAnimationFrame(() => {
+				const heroOpas = window.scrollY / 1000;
+
+				// Логика для изменения прозрачности и трансформации
+				if (heroOpas <= 1) {
+					block.style.opacity = 1 - heroOpas;
+					block.style.transform = `translateY(${heroOpas * 50}%)`; // уменьшаем смещение, чтобы анимация была более плавной
+				}
+			});
 		});
 	}
 }
-// fadeBlock('.rs-banner__block')
+
+fadeBlock('.rs-banner__block');
 
 window.addEventListener('load', function () {
 	let fullHeight = Math.max(
@@ -72,6 +74,53 @@ window.addEventListener('load', function () {
 	);
 
 	document.documentElement.style.setProperty('--full-height', fullHeight + 'px');
+});
+
+/* ====================================
+Кастомный курсор
+==================================== */
+const addCursorHover = (hoveredElement, selectedElement, newClass) => {
+	if (document.querySelector(hoveredElement) && document.querySelector(selectedElement)) {
+		document.querySelectorAll(hoveredElement).forEach(hover => {
+			hover.addEventListener('mouseenter', function () {
+				document.querySelector(selectedElement).classList.add(newClass)
+				hover.classList.add('_mouse-event')
+			})
+
+			hover.addEventListener('mouseleave', function () {
+				document.querySelector(selectedElement).classList.remove(newClass)
+				hover.classList.remove('_mouse-event')
+			})
+
+			hover.addEventListener('mousemove', function () {
+				document.querySelector(selectedElement).classList.add(newClass)
+			})
+		});
+	}
+}
+const addCursorDrag = (hoveredElement, selectedElement, newClass) => {
+	if (document.querySelector(hoveredElement) && document.querySelector(selectedElement)) {
+		document.querySelectorAll(hoveredElement).forEach(hover => {
+			hover.addEventListener('mousedown', function () {
+				document.querySelector(selectedElement).classList.add(newClass)
+			})
+		});
+		document.body.addEventListener('mouseup', function () {
+			document.querySelector(selectedElement).classList.remove(newClass)
+		})
+	}
+}
+const addCursorMove = (hoveredElement, selectedElement) => {
+	document.body.addEventListener('mousemove', function (e) {
+		if (document.querySelector(hoveredElement) && document.querySelector(selectedElement)) {
+			document.querySelector(selectedElement).style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+		}
+	});
+}
+window.addEventListener("load", function (e) {
+	addCursorHover(".rs-slider-block .rs-slider-block__slide", ".rs-slider-block .cursor", "cursor__active");
+	addCursorDrag(".rs-slider-block .rs-slider-block__slide", ".rs-slider-block .cursor__circle", "cursor__circle__drag");
+	addCursorMove(".rs-slider-block .rs-slider-block__slide", ".rs-slider-block .cursor__circle")
 });
 
 /* ====================================

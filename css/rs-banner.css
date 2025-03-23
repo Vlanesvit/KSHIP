@@ -7,6 +7,10 @@
   width: 100%;
   padding-top: 107px;
   position: relative;
+  -webkit-transition: opacity 0s ease, -webkit-transform 0s ease;
+  transition: opacity 0s ease, -webkit-transform 0s ease;
+  transition: opacity 0s ease, transform 0s ease;
+  transition: opacity 0s ease, transform 0s ease, -webkit-transform 0s ease;
 }
 .rs-banner__bg {
   position: absolute;

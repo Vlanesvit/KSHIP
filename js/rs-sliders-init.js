@@ -9,6 +9,11 @@ function initSliders() {
 
 		sliderBlocks.forEach(sliderBlock => {
 			const sliders = sliderBlock.querySelectorAll('.rs-slider-block__slider');
+			const isServicesBlock = sliderBlock.classList.contains('rs-services');
+
+			const textSvgGroups = isServicesBlock
+				? Array.from(sliderBlock.querySelectorAll('.rs-slider-block__text svg g'))
+				: [];
 
 			sliders.forEach(slider => {
 				const arrowPrev = sliderBlock.querySelector('.rs-slider-block__button-prev');
@@ -16,53 +21,22 @@ function initSliders() {
 				const pagination = sliderBlock.querySelector('.rs-slider-block__pagination');
 
 				const swiperMain = new Swiper(slider, {
-					// // Автопрокрутка
-					// autoplay: {
-					// 	// Пауза между прокруткой
-					// 	delay: 10000,
-					// 	// Закончить на последнем слайде
-					// 	stopOnLastSlide: false,
-					// 	// Отключить после ручного переключения
-					// 	disableOnInteraction: false,
-					// },
-
-					// Обновить свайпер
-					// при изменении элементов слайдера
 					observer: true,
-					// при изменении родительских элементов слайдера
 					observeParents: true,
-					// при изменении дочерних элементов слайдера
 					observeSlideChildren: true,
-
-					// Скорость смены слайдов
 					speed: 800,
-
-					// Включение/отключение
-					// перетаскивание на ПК
 					simulateTouch: true,
 					allowTouchMove: true,
-					// Чувствительность свайпа
 					touchRadio: 1,
-					// Угол срабатывания свайпа/перетаскивания
 					touchAngle: 45,
 					touchStartPreventDefault: false,
-
-					// Цикличность слайдера
-					// loop: true,
-
-					// Анимация переключения
-					// effect: 'fade',
-
-					// Курсор перетаскивания
 					grabCursor: true,
 
-					// Стрелки
 					navigation: {
 						prevEl: arrowPrev,
 						nextEl: arrowNext,
 					},
 
-					// Пагинация
 					pagination: {
 						el: pagination,
 						clickable: true,
@@ -72,27 +46,54 @@ function initSliders() {
 						320: {
 							slidesPerView: 1.1,
 							spaceBetween: 20,
+							...(isServicesBlock && { slidesPerGroup: 1 }),
 						},
 						539.98: {
 							slidesPerView: 1.5,
 							spaceBetween: 20,
+							...(isServicesBlock && { slidesPerGroup: 1 }),
 						},
 						767.98: {
 							slidesPerView: 2,
 							spaceBetween: 20,
+							...(isServicesBlock && { slidesPerGroup: 2 }),
 						},
 						991.98: {
 							slidesPerView: 2,
 							spaceBetween: 30,
+							...(isServicesBlock && { slidesPerGroup: 2 }),
 						},
 						1439.98: {
 							slidesPerView: 2.393,
 							spaceBetween: 30,
+							...(isServicesBlock && { slidesPerGroup: 2 }),
 						}
 					}
 				});
-			});
 
+				if (isServicesBlock && textSvgGroups.length) {
+					// Даем класс первому элементу
+					textSvgGroups[0].classList.add('_active');
+
+					swiperMain.on('slideChange', () => {
+						let activeElements = [...textSvgGroups].filter(el => el.classList.contains('_active')); // Найти все активные элементы
+						let lastActive = activeElements[activeElements.length - 1]; // Последний активный элемент
+
+						if (swiperMain.activeIndex > swiperMain.previousIndex) {
+							// Прокрутка вперед: добавляем класс следующему элементу после последнего активного
+							let nextElement = lastActive?.nextElementSibling;
+							if (nextElement) {
+								nextElement.classList.add('_active');
+							}
+						} else {
+							// Прокрутка назад: убираем класс у последнего активного элемента (кроме первого)
+							if (activeElements.length > 1) {
+								lastActive.classList.remove('_active');
+							}
+						}
+					});
+				}
+			});
 		});
 	}
 }

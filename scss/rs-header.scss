@@ -16,8 +16,7 @@
 	}
 
 	&._header-scroll {
-	background-color: #fff;
-		
+		background-color: #fff;
 	}
 
 	@media (max-width: 991.98px) {
@@ -336,21 +335,27 @@
 						top: 3.5px;
 						right: 0px;
 						z-index: 10;
+						transition: all 0.3s ease 0s;
 
 						@media (min-width: 991.98px) {
 							display: none;
 						}
 
-						&::before {
+						&::before,
+						&::after {
 							content: "";
-							display: block;
-							width: 100%;
+							position: absolute;
+							left: 50%;
+							top: 50%;
+							transform: translate(-50%, -50%) rotate(-90deg);
+							width: 1px;
 							height: 100%;
-							background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='44' height='44' viewBox='0 0 44 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M22 0L22 44' stroke='%23002350' stroke-width='2'/%3e%3cpath d='M44 22L-8.15839e-07 22' stroke='%23002350' stroke-width='2'/%3e%3c/svg%3e ");
-							background-repeat: no-repeat;
-							background-position: center;
-							background-size: contain;
+							background-color: var(--primary-color);
 							transition: all 0.3s ease 0s;
+						}
+
+						&::before {
+							transform: translate(-50%, -50%) rotate(0deg);
 						}
 					}
 				}
@@ -394,9 +399,7 @@
 					&._open-menu {
 						& > i,
 						& > button {
-							&::before {
-								transform: rotate(-135deg);
-							}
+							transform: rotate(-135deg);
 						}
 					}
 				}

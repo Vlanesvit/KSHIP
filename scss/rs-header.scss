@@ -453,9 +453,15 @@
 					}
 
 					li {
+						--margin: 16px;
+						--size: 48px;
+						transition: all 0.3s ease 0s;
+
+						@include responsive-auto(--margin, (16, 10), (1439.98, 1169.98, 991.98));
+						@include responsive-auto(--size, (48, 40), (1439.98, 1169.98, 991.98));
+
 						&:not(:last-child) {
-							margin-right: 16px;
-							@include responsive-auto(margin-right, (16, 10), (1439.98, 1169.98, 991.98));
+							margin-right: var(--margin);
 						}
 
 						&:has(.rs-btn) {
@@ -470,21 +476,29 @@
 							}
 						}
 
+						&:nth-child(2) {
+							&:not(._clicked) {
+								& ~ li:nth-child(3),
+								& ~ li:nth-child(4) {
+									opacity: 0;
+									visibility: hidden;
+									margin-left: calc(-1 * (var(--size) + var(--margin)));
+								}
+							}
+						}
+
 						&:not(:has(.rs-btn)) {
 							position: relative;
 
 							a {
-								width: 48px;
-								height: 48px;
+								width: var(--size);
+								height: var(--size);
 								display: flex;
 								align-items: center;
 								justify-content: center;
 								text-decoration: none;
 								border-top: 1px solid currentColor;
 								border-bottom: 1px solid currentColor;
-
-								@include responsive-auto(width, (48, 40), (1439.98, 1169.98, 991.98));
-								@include responsive-auto(height, (48, 40), (1439.98, 1169.98, 991.98));
 							}
 
 							&::before,

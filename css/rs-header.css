@@ -483,23 +483,44 @@
             justify-content: center;
   }
 }
-.rs-header__menu .menu__actions ul li:not(:last-child) {
-  margin-right: 16px;
+.rs-header__menu .menu__actions ul li {
+  --margin: 16px;
+  --size: 48px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 @media (max-width: 1439.98px) {
-  .rs-header__menu .menu__actions ul li:not(:last-child) {
-    margin-right: 14px;
+  .rs-header__menu .menu__actions ul li {
+    --margin: 14px;
   }
 }
 @media (max-width: 1169.98px) {
-  .rs-header__menu .menu__actions ul li:not(:last-child) {
-    margin-right: 12px;
+  .rs-header__menu .menu__actions ul li {
+    --margin: 12px;
   }
 }
 @media (max-width: 991.98px) {
-  .rs-header__menu .menu__actions ul li:not(:last-child) {
-    margin-right: 10px;
+  .rs-header__menu .menu__actions ul li {
+    --margin: 10px;
   }
+}
+@media (max-width: 1439.98px) {
+  .rs-header__menu .menu__actions ul li {
+    --size: 45.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-header__menu .menu__actions ul li {
+    --size: 42.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-header__menu .menu__actions ul li {
+    --size: 40px;
+  }
+}
+.rs-header__menu .menu__actions ul li:not(:last-child) {
+  margin-right: var(--margin);
 }
 .rs-header__menu .menu__actions ul li:has(.rs-btn) {
   margin-right: 24px;
@@ -527,12 +548,17 @@
             flex: 1 1 100%;
   }
 }
+.rs-header__menu .menu__actions ul li:nth-child(2):not(._clicked) ~ li:nth-child(3), .rs-header__menu .menu__actions ul li:nth-child(2):not(._clicked) ~ li:nth-child(4) {
+  opacity: 0;
+  visibility: hidden;
+  margin-left: calc(-1 * (var(--size) + var(--margin)));
+}
 .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) {
   position: relative;
 }
 .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) a {
-  width: 48px;
-  height: 48px;
+  width: var(--size);
+  height: var(--size);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -545,36 +571,6 @@
   text-decoration: none;
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
-}
-@media (max-width: 1439.98px) {
-  .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) a {
-    width: 45.3333333333px;
-  }
-}
-@media (max-width: 1169.98px) {
-  .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) a {
-    width: 42.6666666667px;
-  }
-}
-@media (max-width: 991.98px) {
-  .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) a {
-    width: 40px;
-  }
-}
-@media (max-width: 1439.98px) {
-  .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) a {
-    height: 45.3333333333px;
-  }
-}
-@media (max-width: 1169.98px) {
-  .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) a {
-    height: 42.6666666667px;
-  }
-}
-@media (max-width: 991.98px) {
-  .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) a {
-    height: 40px;
-  }
 }
 .rs-header__menu .menu__actions ul li:not(:has(.rs-btn))::before, .rs-header__menu .menu__actions ul li:not(:has(.rs-btn))::after, .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) > a::before, .rs-header__menu .menu__actions ul li:not(:has(.rs-btn)) > a::after {
   content: "";

@@ -38,6 +38,18 @@ function menuFunction() {
 	}
 	wrapMenuText();
 
+	function languageMenu() {
+		menus.forEach(menu => {
+			const item = menu.querySelector('.menu__actions ul li:nth-child(2)');
+
+			item.addEventListener('click', function (e) {
+				e.preventDefault();
+				item.classList.toggle('_clicked')
+			})
+		});
+	}
+	languageMenu();
+
 	// Меню
 	function menuInit() {
 		menus.forEach(menu => {

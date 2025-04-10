@@ -36,6 +36,22 @@
 		}
 	}
 
+	&__icon {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		padding: 100px 0px;
+
+		@include responsive-auto(padding-top, (100, 30), (1439.98, 1169.98, 991.98));
+		@include responsive-auto(padding-bottom, (100, 30), (1439.98, 1169.98, 991.98));
+
+		@media (max-width: 991.98px){
+			  display: none;
+		}
+	}
+
 	// .rs-text-block__wrapper
 	&__wrapper {
 		margin-top: 47px;
